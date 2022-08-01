@@ -21,12 +21,7 @@ export default function Home({
         <title>{siteTitle}</title>
       </Head>
       <section className={utileStyles.headingMd}>
-        <p>Hello, I'm <b>motosbt</b></p>
-        <p>You can contact me on <a href="https://twitter.com/moto_sbt">Twitter</a></p>
-        <p>
-          (This is a sample website - you’ll be building a site like this on{' '}
-          <a href="https://nextjs.org/learn">our Next.js tutorial</a>.)
-        </p>
+        <p className={utileStyles.lightText}>技術的なまとめとか、所感とかを気ままに。</p>
       </section>
       <section className={`${utileStyles.headingMd} ${utileStyles.padding1px}`}>
         <h2 className={utileStyles.headingLg}>Blog</h2>
