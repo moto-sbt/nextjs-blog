@@ -31,7 +31,7 @@ export function getSortedPostsData() {
 
         return {
             id,
-            ...matterResult.data,
+            ...(matterResult.data as { date: string, title: string}),
         };
     });
 
