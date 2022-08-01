@@ -24,3 +24,13 @@ img {
     max-width: 100%;
     display: block;
 }
+
+code:not([class]) {
+    color: rgb(219, 86, 240);
+    padding: 0.3px;
+    border-radius: 8px;
+}
+
+code:not([class]):before, code:not([class]):after {
+    content: "\`";
+}

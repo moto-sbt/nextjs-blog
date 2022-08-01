@@ -4,6 +4,7 @@ import { getAllPostIds, getPostData } from '../../lib/posts'
 import Head from 'next/head';
 import utilStyles from '../../styles/utils.module.css'
 import { GetStaticProps, GetStaticPaths } from 'next';
+import 'prismjs/themes/prism-tomorrow.css';
 
 export default function Post({
     postData
