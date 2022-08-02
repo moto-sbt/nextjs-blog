@@ -3,6 +3,7 @@ import Head from 'next/head';
 import Image from 'next/image';
 import utilStyles from '../styles/utils.module.css';
 import Link from 'next/link';
+import { FaGithub, FaTwitter } from "react-icons/fa";
 
 const name = 'motosbt';
 export const siteTitle = 'motosbt';
@@ -66,7 +67,16 @@ export default function Layout({
             )}
         </header>
         <main>{children}</main>
-        {!home && (
+        {home ? (
+            <footer className={styles.footer}>
+                <a className='github_icon_link' href="https://github.com/moto-sbt/nextjs-blog">
+                    <FaGithub size={40} />
+                </a>
+                <a className='twitter_icon_link' href="https://twitter.com/moto_sbt">
+                    <FaTwitter size={40} />
+                </a>
+            </footer>
+        ) : (
         <div className={styles.backToHome}>
             <Link href="/">
                 <a>← Back to home</a>
