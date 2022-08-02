@@ -34,3 +34,13 @@ code:not([class]) {
 code:not([class]):before, code:not([class]):after {
     content: "\`";
 }
+
+.github_icon_link {
+    color: black;
+    margin: 10px;
+}
+
+.twitter_icon_link {
+    color: #1DA1F2;
+    margin: 10px;
+}
