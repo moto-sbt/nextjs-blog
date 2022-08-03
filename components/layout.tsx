@@ -22,7 +22,7 @@ export default function Layout({
                 name='description'
                 content='技術的なまとめとか、所感とかを気ままに。'
             />
-            <meta property='og:image' content="https://moto-sbt.vercel.app/images/motosbt.png" />
+            <meta property='og:image' content="https://motosbt.vercel.app/images/motosbt.png" />
             <meta name='og:title' content={siteTitle} />
             <meta name='twitter:card' content='summary_large_image' />
         </Head>
