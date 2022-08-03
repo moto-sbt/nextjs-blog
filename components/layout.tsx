@@ -26,6 +26,7 @@ export default function Layout({
             <meta name='og:title' content={siteTitle} />
             <meta name='twitter:card' content='summary_large_image' />
             <meta name='twitter:image' content='https://motosbt.vercel.app/images/motosbt.png' />
+            <meta name="twitter:site" content="@moto_sbt" />
         </Head>
         <header className={styles.header}>
             {home ? (
