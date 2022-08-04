@@ -1,7 +1,5 @@
-import styles from 'components/layout.module.css';
 import Head from 'next/head';
 import Image from 'next/image';
-import utilStyles from 'styles/utils.module.css';
 import Link from 'next/link';
 import { FaGithub, FaTwitter } from "react-icons/fa";
 
@@ -15,7 +13,7 @@ export default function Layout({
     children: React.ReactNode
     home?: boolean
 }) {
-    return (<div className={styles.container}>
+    return (<div className="max-w-xl px-4 py-0 mt-12 mx-auto mb-24">
         <Head>
             <link rel="icon" href="/favicon.ico" />
             <meta 
@@ -29,18 +27,18 @@ export default function Layout({
             <meta name='twitter:image' content='https://motosbt.vercel.app/images/motosbt.png' />
             <meta name="twitter:site" content="@moto_sbt" />
         </Head>
-        <header className={styles.header}>
+        <header className="flex flex-col items-center">
             {home ? (
                 <>
                     <Image
                         priority
                         src="/images/profile.png"
-                        className={utilStyles.borderCircle}
+                        className="rounded-full"
                         height={144}
                         width={144}
                         alt={name}
                     />
-                    <h1 className={utilStyles.heading2Xl}>{name}</h1>
+                    <h1 className="text-4xl font-extrabold tracking-tight my-4">{name}</h1>
                 </>
             ) : (
                 <>
@@ -49,16 +47,16 @@ export default function Layout({
                         <Image
                         priority
                         src="/images/profile.png"
-                        className={utilStyles.borderCircle}
+                        className="rounded-full"
                         height={108}
                         width={108}
                         alt={name}
                         />
                     </a>
                     </Link>
-                    <h2 className={utilStyles.headingLg}>
+                    <h2 className="text-2xl font-bold leading-loose mt-2 mb-4">
                         <Link href="/">
-                            <a className={utilStyles.colorInherit}>{name}</a>
+                            <a className="text-inherit">{name}</a>
                         </Link>
                     </h2>
                 </>
@@ -66,16 +64,16 @@ export default function Layout({
         </header>
         <main>{children}</main>
         {home ? (
-            <footer className={styles.footer}>
-                <a className='github_icon_link' href="https://github.com/moto-sbt/nextjs-blog">
+            <footer className="flex justify-center items-center">
+                <a className='text-black m-2' href="https://github.com/moto-sbt/nextjs-blog">
                     <FaGithub size={40} />
                 </a>
-                <a className='twitter_icon_link' href="https://twitter.com/moto_sbt">
+                <a className='text-twitter m-2' href="https://twitter.com/moto_sbt">
                     <FaTwitter size={40} />
                 </a>
             </footer>
         ) : (
-        <div className={styles.backToHome}>
+        <div className="mt-12">
             <Link href="/">
                 <a>← Back to home</a>
             </Link>

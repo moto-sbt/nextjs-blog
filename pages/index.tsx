@@ -2,7 +2,6 @@ import Head from 'next/head';
 import Link from 'next/link';
 import Date from 'components/date';
 import Layout, { siteTitle } from 'components/layout';
-import utileStyles from 'styles/utils.module.css';
 import { getSortedPostsData } from 'lib/posts';
 import { GetStaticProps } from 'next';
 
@@ -29,19 +28,19 @@ export default function Home({
       <Head>
         <title>{siteTitle}</title>
       </Head>
-      <section className={utileStyles.headingMd}>
-        <p className={utileStyles.lightText}>技術的なまとめとか、所感とかを気ままに。</p>
+      <section className="text-xl leading-8">
+        <p className="text-gray">技術的なまとめとか、所感とかを気ままに。</p>
       </section>
-      <section className={`${utileStyles.headingMd} ${utileStyles.padding1px}`}>
-        <h2 className={utileStyles.headingLg}>Blog</h2>
-        <ul className={utileStyles.list}>
+      <section className="text-xl leading-6 pt-px">
+        <h2 className="text-2xl leading-loose my-4 font-bold">Blog</h2>
+        <ul className="list-none p-0 m-0">
           {allPostsData.map(({ id, date, title }) => (
-            <li className={utileStyles.listItem} key={id}>
+            <li className="my-6" key={id}>
               <Link href={`/posts/${id}`}>
-                <a>{title}</a>
+                <a className="leading-7">{title}</a>
               </Link>
 							<br />
-							<small className={utileStyles.lightText}>
+							<small className="text-gray">
 								<Date dateString={date} />
 							</small>
             </li>
