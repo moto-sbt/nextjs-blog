@@ -6,6 +6,25 @@ import utilStyles from 'styles/utils.module.css'
 import { GetStaticProps, GetStaticPaths } from 'next';
 import 'prismjs/themes/prism-tomorrow.css';
 
+export const getStaticPaths : GetStaticPaths = async () => {
+    // id の可能な値のリストを返す
+    const paths = getAllPostIds();
+    return {
+        paths,
+        fallback: false, // ?
+    }
+}
+
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+    // params.id　を使用してブログ投稿に必要なデータを取得
+    const postData =  await getPostData(params.id as string);
+    return {
+        props: {
+            postData,
+        },
+    };
+}
+
 export default function Post({
     postData
 }: {
@@ -29,23 +48,4 @@ export default function Post({
             </article>
         </Layout>
     );
-}
-
-export const getStaticPaths : GetStaticPaths = async () => {
-    // id の可能な値のリストを返す
-    const paths = getAllPostIds();
-    return {
-        paths,
-        fallback: false, // ?
-    }
-}
-
-export const getStaticProps: GetStaticProps = async ({ params }) => {
-    // params.id　を使用してブログ投稿に必要なデータを取得
-    const postData =  await getPostData(params.id as string);
-    return {
-        props: {
-            postData,
-        },
-    };
 }
