@@ -1,9 +1,9 @@
-import { IconLinks } from 'components/molecules/IconLinks';
+import { SNSIconLinks } from 'components/molecules/SNSIconLinks';
 
 export const HomeFooter = () => {
     return (
         <div className="flex justify-center items-center">
-            <IconLinks />
+            <SNSIconLinks />
         </div>
     );
 }

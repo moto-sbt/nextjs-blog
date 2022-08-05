@@ -1,5 +1,5 @@
 import Layout from 'components/layout';
-import Date from 'components/date';
+import { Date } from 'components/atoms/Date';
 import { getAllPostIds, getPostData } from 'lib/posts'
 import Head from 'next/head';
 import { GetStaticProps, GetStaticPaths } from 'next';

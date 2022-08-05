@@ -1,19 +1,12 @@
 import Link from 'next/link';
-import Image from 'next/image';
+import { CircleLogo } from 'components/atoms/CircleLogo';
 
 export const PostHeader = () => {
     return (
         <>
             <Link href="/">
                 <a>
-                    <Image
-                    priority
-                    src="/images/profile.png"
-                    className="rounded-full"
-                    height={108}
-                    width={108}
-                    alt='motosbt'
-                    />
+                    <CircleLogo src="/images/profile.png" size={108} />
                 </a>
             </Link>
             <h2 className="text-2xl font-bold leading-loose mt-2 mb-4">
