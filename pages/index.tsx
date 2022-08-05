@@ -28,9 +28,6 @@ export default function Home({
       <Head>
         <title>{siteTitle}</title>
       </Head>
-      <section className="text-xl leading-8">
-        <p className="text-gray">技術的なまとめとか、所感とかを気ままに。</p>
-      </section>
       <section className="text-xl leading-6 pt-px">
         <h2 className="text-2xl leading-loose my-4 font-bold">Blog</h2>
         <ul className="list-none p-0 m-0">
