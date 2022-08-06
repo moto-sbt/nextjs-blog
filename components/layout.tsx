@@ -1,18 +1,20 @@
 import Head from 'next/head';
-import { HomeHeader } from 'components/organisms/HomeHeader';
-import { HomeFooter } from 'components/organisms/HomeFooter';
-import { PostHeader } from 'components/organisms/PostHeader';
-import { PostFooter } from 'components/organisms/PostFooter';
+import HomeHeader from 'components/organisms/HomeHeader';
+import HomeFooter from 'components/organisms/HomeFooter';
+import PostHeader from 'components/organisms/PostHeader';
+import PostFooter from 'components/organisms/PostFooter';
 
 export const siteTitle = 'motosbt';
 
-export default function Layout({
-    children,
-    home
-}: {
+type Props = {
     children: React.ReactNode
     home?: boolean
-}) {
+}
+
+const Layout = ({
+    children,
+    home
+}: Props) => {
     return (<div className="max-w-xl px-4 py-0 mt-12 mx-auto mb-24">
         <Head>
             <link rel="icon" href="/favicon.ico" />
@@ -36,3 +38,5 @@ export default function Layout({
         </footer>
     </div>);
 }
+
+export default Layout

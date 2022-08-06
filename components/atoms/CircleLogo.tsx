@@ -1,6 +1,11 @@
 import Image from 'next/image';
 
-export const CircleLogo = ({ size, src }) => {
+type Props = {
+    size: number
+    src: string
+}
+
+const CircleLogo = ({ size, src }: Props) => {
     return (
         <Image
             priority
@@ -12,3 +17,5 @@ export const CircleLogo = ({ size, src }) => {
         />
     );
 }
+
+export default CircleLogo

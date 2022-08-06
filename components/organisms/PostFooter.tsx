@@ -1,6 +1,6 @@
 import Link from 'next/link';
 
-export const PostFooter = () => {
+const PostFooter = () => {
     return (
         <div className="mt-12">
             <Link href="/">
@@ -9,3 +9,5 @@ export const PostFooter = () => {
         </div>
     );
 }
+
+export default PostFooter

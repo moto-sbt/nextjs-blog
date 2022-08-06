@@ -1,7 +1,7 @@
-import { HomeHeaderLogo } from 'components/molecules/HomeHeaderLogo';
-import { HomeHeaderTitle } from 'components/molecules/HomeHeaderTitle';
+import HomeHeaderLogo from 'components/molecules/HomeHeaderLogo';
+import HomeHeaderTitle from 'components/molecules/HomeHeaderTitle';
 
-export const HomeHeader = () => {
+const HomeHeader = () => {
     return (
         <>
             <HomeHeaderLogo />
@@ -9,3 +9,5 @@ export const HomeHeader = () => {
         </>
     );
 }
+
+export default HomeHeader
