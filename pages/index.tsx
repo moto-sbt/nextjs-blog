@@ -1,8 +1,8 @@
+import { GetStaticProps } from 'next';
 import Head from 'next/head';
 import Layout, { siteTitle } from 'components/layout';
+import PostItems from 'components/organisms/PostItems';
 import { getSortedPostsData } from 'lib/posts';
-import { GetStaticProps } from 'next';
-import { PostItems } from 'components/organisms/PostItems'
 
 export const getStaticProps: GetStaticProps = async () => {
   const allPostsData = getSortedPostsData();
@@ -13,15 +13,15 @@ export const getStaticProps: GetStaticProps = async () => {
   };
 }
 
-export default function Home({
-  allPostsData
-} : {
+type Props = {
   allPostsData: {
     date: string
     title: string
     id: string
   }[]
-}) {
+}
+
+const Home = ({ allPostsData }: Props) => {
   return (
     <Layout home>
       <Head>
@@ -33,3 +33,5 @@ export default function Home({
     </Layout>
   );
 }
+
+export default Home

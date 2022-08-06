@@ -1,15 +1,17 @@
 import Link from 'next/link';
-import { Date } from 'components/atoms/Date';
+import Date from 'components/atoms/Date';
 
-export const PostItem = ({
-    date,
-    title,
-    id
-} : {
+type Props = {
     date: string
     title: string
     id: string
-}) => {
+}
+
+const PostItem = ({
+    date,
+    title,
+    id
+}: Props) => {
     return (
         <>
             <li className="my-6" key={id}>
@@ -24,3 +26,5 @@ export const PostItem = ({
         </>
     )
 }
+
+export default PostItem

@@ -1,8 +1,8 @@
-import Layout from 'components/layout';
-import { Date } from 'components/atoms/Date';
-import { getAllPostIds, getPostData } from 'lib/posts'
-import Head from 'next/head';
 import { GetStaticProps, GetStaticPaths } from 'next';
+import Head from 'next/head';
+import Layout from 'components/layout';
+import Date from 'components/atoms/Date';
+import { getAllPostIds, getPostData } from 'lib/posts'
 import 'prismjs/themes/prism-tomorrow.css';
 
 export const getStaticPaths : GetStaticPaths = async () => {
@@ -24,15 +24,15 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     };
 }
 
-export default function Post({
-    postData
-}: {
+type Props = {
     postData: {
         title: string
         date: string
         contentHtml: string
     }
-}) {
+}
+
+const Post = ({ postData }: Props) => {
     return (
         <Layout>
             <Head>
@@ -48,3 +48,5 @@ export default function Post({
         </Layout>
     );
 }
+
+export default Post

@@ -1,16 +1,14 @@
-import { PostItem } from 'components/molecules/PostItem';
+import PostItem from 'components/molecules/PostItem';
 
-type AllPostsData = {
-    date: string
-    title: string
-    id: string
+type Props = {
+    allPostsData: {
+        date: string
+        title: string
+        id: string
+    }[]
 }
 
-export const PostItems = ({
-    allPostsData
-} : {
-    allPostsData: AllPostsData[]
-}) => {
+const PostItems = ({ allPostsData }: Props) => {
     return (
         <>
             <h2 className="text-2xl leading-loose my-4 font-bold">Blog</h2>
@@ -22,3 +20,5 @@ export const PostItems = ({
         </>
     );
 }
+
+export default PostItems

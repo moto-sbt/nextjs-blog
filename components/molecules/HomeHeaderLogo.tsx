@@ -1,7 +1,6 @@
-import Image from 'next/image';
-import { CircleLogo } from 'components/atoms/CircleLogo';
+import CircleLogo from 'components/atoms/CircleLogo';
 
-export const HomeHeaderLogo = () => {
+const HomeHeaderLogo = () => {
     return (
         <>
             <CircleLogo
@@ -12,3 +11,5 @@ export const HomeHeaderLogo = () => {
         </>
     )
 }
+
+export  default HomeHeaderLogo

@@ -1,7 +1,7 @@
 import Link from 'next/link';
-import { CircleLogo } from 'components/atoms/CircleLogo';
+import CircleLogo from 'components/atoms/CircleLogo';
 
-export const PostHeader = () => {
+const PostHeader = () => {
     return (
         <>
             <Link href="/">
@@ -17,3 +17,5 @@ export const PostHeader = () => {
         </>
     )
 }
+
+export default PostHeader
