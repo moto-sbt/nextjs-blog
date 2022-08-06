@@ -1,9 +1,8 @@
 import Head from 'next/head';
-import Link from 'next/link';
-import Date from 'components/date';
 import Layout, { siteTitle } from 'components/layout';
 import { getSortedPostsData } from 'lib/posts';
 import { GetStaticProps } from 'next';
+import { PostItems } from 'components/organisms/PostItems'
 
 export const getStaticProps: GetStaticProps = async () => {
   const allPostsData = getSortedPostsData();
@@ -16,7 +15,7 @@ export const getStaticProps: GetStaticProps = async () => {
 
 export default function Home({
   allPostsData
-}: {
+} : {
   allPostsData: {
     date: string
     title: string
@@ -28,24 +27,8 @@ export default function Home({
       <Head>
         <title>{siteTitle}</title>
       </Head>
-      <section className="text-xl leading-8">
-        <p className="text-gray">技術的なまとめとか、所感とかを気ままに。</p>
-      </section>
       <section className="text-xl leading-6 pt-px">
-        <h2 className="text-2xl leading-loose my-4 font-bold">Blog</h2>
-        <ul className="list-none p-0 m-0">
-          {allPostsData.map(({ id, date, title }) => (
-            <li className="my-6" key={id}>
-              <Link href={`/posts/${id}`}>
-                <a className="leading-7">{title}</a>
-              </Link>
-							<br />
-							<small className="text-gray">
-								<Date dateString={date} />
-							</small>
-            </li>
-          ))}
-        </ul>
+        <PostItems allPostsData={allPostsData} />
       </section>
     </Layout>
   );
