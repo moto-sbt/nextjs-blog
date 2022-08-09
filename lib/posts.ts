@@ -16,7 +16,8 @@ export function getSortedPostsData() {
      * {
      *   id: 'pre-rendering',
      *   title: 'Two Forms of Pre-rendering',
-     *   date: '2020-01-01'
+     *   date: '2020-01-01',
+     *   tags: ['nextjs', 'vercel']
      * }
      */
     const allPostsData = fileNames.map((fileName) => {
@@ -29,10 +30,11 @@ export function getSortedPostsData() {
 
         // gray-matter を使用して投稿メタデータを解析する
         const matterResult = matter(fileContents);
+        console.log(matterResult.data) // TODO:debug
 
         return {
             id,
-            ...(matterResult.data as { date: string, title: string}),
+            ...(matterResult.data as { date: string, title: string, tags: Array<string>}),
         };
     });
 
