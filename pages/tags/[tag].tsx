@@ -9,6 +9,7 @@ export const getServerSideProps: GetServerSideProps = async ({ params }) => {
   return {
     props: {
       allPostsDataByTag,
+      tag: params.tag
     },
   };
 }
@@ -19,17 +20,18 @@ type Props = {
     title: string
     id: string
     tags: Array<string>
-  }[]
+  }[],
+  tag: string
 }
 
-const Tags = ({ allPostsDataByTag }: Props) => {
+const Tags = ({ allPostsDataByTag, tag }: Props) => {
   return (
     <Layout>
       <Head>
         <title>{siteTitle}</title>
       </Head>
       <section className="text-xl leading-6 pt-px">
-        <PostItems allPostsData={allPostsDataByTag} />
+        <PostItems title={`#${tag}`} allPostsData={allPostsDataByTag} />
       </section>
     </Layout>
   );

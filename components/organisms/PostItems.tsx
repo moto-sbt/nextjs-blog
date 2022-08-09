@@ -6,13 +6,14 @@ type Props = {
         title: string
         id: string
         tags: Array<string>
-    }[]
+    }[],
+    title?: string
 }
 
-const PostItems = ({ allPostsData }: Props) => {
+const PostItems = ({ allPostsData, title }: Props) => {
     return (
         <>
-            <h2 className="text-2xl leading-loose my-4 font-bold">Blog</h2>
+            <h2 className="text-2xl leading-loose my-4 font-bold">{title}</h2>
             <ul className="list-none p-0 m-0">
                 {allPostsData.map(({ id, date, title, tags }) => (
                     <PostItem date={date} title={title} id={id} tags={tags} />
@@ -20,6 +21,10 @@ const PostItems = ({ allPostsData }: Props) => {
             </ul>
         </>
     );
+}
+
+PostItems.defaultProps = {
+    title: 'Blog'
 }
 
 export default PostItems
