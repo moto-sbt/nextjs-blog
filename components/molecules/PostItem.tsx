@@ -26,8 +26,8 @@ const PostItem = ({
                 </small>
                 {tags.map((tag) => (
                     <Link href={`/tags/${tag}`}>
-                        <a>
-                            <small>#{tag} </small>
+                        <a className="text-sm text-gray bg-gray-light mx-1 px-1 rounded-md hover:bg-gray-dark hover:no-underline">
+                            <small>{tag}</small>
                         </a>
                     </Link>
                 ))}

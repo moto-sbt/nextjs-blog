@@ -30,7 +30,6 @@ export function getSortedPostsData() {
 
         // gray-matter を使用して投稿メタデータを解析する
         const matterResult = matter(fileContents);
-        console.log(matterResult.data) // TODO:debug
 
         return {
             id,
