@@ -50,6 +50,53 @@ export function getSortedPostsData() {
 
 }
 
+export function getSortedPostsDataByTag(tag: string) {
+    // /posts 配下のファイルを取得
+    const fileNames = fs.readdirSync(postsDirectory); // postsディレクトリ配下のファイル名の配列
+
+    /**
+     * こんな感じのデータの配列で返される
+     * {
+     *   id: 'pre-rendering',
+     *   title: 'Two Forms of Pre-rendering',
+     *   date: '2020-01-01',
+     *   tags: ['nextjs', 'vercel']
+     * }
+     */
+    const allPostsData = fileNames.map((fileName) => {
+        // ".md"をファイル名から外す
+        const id = fileName.replace(/\.md$/, '');
+
+        // マークダウンを文字列として読み込む
+        const fullPath = path.join(postsDirectory, fileName);
+        const fileContents = fs.readFileSync(fullPath, 'utf-8');
+
+        // gray-matter を使用して投稿メタデータを解析する
+        const matterResult = matter(fileContents);
+
+        return {
+            id,
+            ...(matterResult.data as { date: string, title: string, tags: Array<string>}),
+        };
+    });
+
+    // tag　でフィルターをかける
+    const postsData = allPostsData.filter((postData) => {
+        return postData.tags.indexOf(tag) != -1
+    })
+
+    // date でソートする
+    return postsData.sort(({ date: a }, { date: b }) => {
+        if (a < b) {
+            return 1;
+        } else if (a > b) {
+            return -1;
+        } else {
+            return 0;
+        }
+    });
+}
+
 export function getAllPostIds() {
     const fileNames = fs.readdirSync(postsDirectory);
 
