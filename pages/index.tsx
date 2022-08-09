@@ -18,6 +18,7 @@ type Props = {
     date: string
     title: string
     id: string
+    tags: Array<string>
   }[]
 }
 

@@ -10,7 +10,11 @@ module.exports = {
       'black': '#000000',
       'link-blue': '#0070f3',
       'twitter': '#1DA1F2',
-      'gray': '#666',
+      'gray': {
+        light: "#f5f5f5",
+        DEFAULT:'#666',
+        dark: '#a9a9a9'
+      },
       'inherit': 'inherit',
     },
   },

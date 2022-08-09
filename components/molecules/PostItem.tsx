@@ -5,12 +5,14 @@ type Props = {
     date: string
     title: string
     id: string
+    tags: Array<string>
 }
 
 const PostItem = ({
     date,
     title,
-    id
+    id,
+    tags
 }: Props) => {
     return (
         <>
@@ -22,6 +24,13 @@ const PostItem = ({
                 <small className="text-gray">
                     <Date dateString={date} />
                 </small>
+                {tags.map((tag) => (
+                    <Link href={`/tags/${tag}`}>
+                        <a className="text-sm text-gray bg-gray-light mx-1 px-1 rounded-md hover:bg-gray-dark hover:no-underline">
+                            <small>{tag}</small>
+                        </a>
+                    </Link>
+                ))}
             </li>
         </>
     )
