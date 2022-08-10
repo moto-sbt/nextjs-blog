@@ -15,8 +15,10 @@ const PostItems = ({ allPostsData, title }: Props) => {
         <>
             <h2 className="text-2xl leading-loose my-4 font-bold">{title}</h2>
             <ul className="list-none p-0 m-0">
-                {allPostsData.map(({ id, date, title, tags }) => (
-                    <PostItem date={date} title={title} id={id} tags={tags} />
+                {allPostsData.map(({ id, date, title, tags }, index) => (
+                    <li className="my-6" key={index}>
+                        <PostItem date={date} title={title} id={id} tags={tags}/>
+                    </li>
                 ))}
             </ul>
         </>
