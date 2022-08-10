@@ -5,7 +5,7 @@ const SNSIconLinks = () => {
     return (
         <>
             <GithubIconLink id="moto-sbt" size={40} repository="nextjs-blog" />
-            <TwitterIconLink id="moto-sbt" size={40} />
+            <TwitterIconLink id="moto_sbt" size={40} />
         </>
     );
 }
