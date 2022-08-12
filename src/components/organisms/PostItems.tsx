@@ -26,7 +26,7 @@ const PostItems = ({ allPostsData, title }: Props) => {
 }
 
 PostItems.defaultProps = {
-    title: 'Blog'
+    title: '記事一覧'
 }
 
 export default PostItems

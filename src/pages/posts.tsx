@@ -1,7 +1,7 @@
 import { GetStaticProps } from 'next';
 import Head from 'next/head';
 import Layout, { siteTitle } from '@/components/layout';
-import TopPostItems from '@/components/organisms/TopPostItems';
+import PostItems from '@/components/organisms/PostItems';
 import { getSortedPostsData } from '@/lib/posts';
 
 export const getStaticProps: GetStaticProps = async () => {
@@ -22,17 +22,17 @@ type Props = {
   }[]
 }
 
-const Home = ({ allPostsData }: Props) => {
+const Posts = ({ allPostsData }: Props) => {
   return (
-    <Layout home>
+    <Layout>
       <Head>
         <title>{siteTitle}</title>
       </Head>
       <section className="text-xl leading-6 pt-px">
-        <TopPostItems allPostsData={allPostsData} />
+        <PostItems allPostsData={allPostsData} />
       </section>
     </Layout>
   );
 }
 
-export default Home
+export default Posts
