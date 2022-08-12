@@ -32,7 +32,7 @@ const Layout = ({
         <header className="flex flex-col items-center">
             { home ? <HomeHeader /> : <PostHeader /> }
         </header>
-        <main>{children}</main>
+        <main className='mb-10'>{children}</main>
         <footer>
             { home ? <HomeFooter /> : <PostFooter /> }
         </footer>
