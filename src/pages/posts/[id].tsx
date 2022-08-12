@@ -1,8 +1,8 @@
 import { GetStaticProps, GetStaticPaths } from 'next';
 import Head from 'next/head';
-import Layout from 'components/layout';
-import Date from 'components/atoms/Date';
-import { getAllPostIds, getPostData } from 'lib/posts'
+import Layout from '@/components/layout';
+import Date from '@/components/atoms/Date';
+import { getAllPostIds, getPostData } from '@/lib/posts'
 import 'prismjs/themes/prism-tomorrow.css';
 
 export const getStaticPaths : GetStaticPaths = async () => {

@@ -1,4 +1,4 @@
-import CircleLogo from 'components/atoms/CircleLogo';
+import CircleLogo from '@/components/atoms/CircleLogo';
 
 const HomeHeaderLogo = () => {
     return (

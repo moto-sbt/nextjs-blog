@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import Date from 'components/atoms/Date';
+import Date from '@/components/atoms/Date';
 
 type Props = {
     date: string

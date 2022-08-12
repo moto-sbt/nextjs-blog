@@ -1,5 +1,5 @@
-import GithubIconLink from "components/atoms/GithubIconLink"
-import TwitterIconLink from "components/atoms/TwitterIconLink"
+import GithubIconLink from "@/components/atoms/GithubIconLink"
+import TwitterIconLink from "@/components/atoms/TwitterIconLink"
 
 const SNSIconLinks = () => {
     return (
