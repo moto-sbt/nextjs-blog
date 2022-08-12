@@ -1,4 +1,4 @@
-import SNSIconLinks from 'components/molecules/SNSIconLinks';
+import SNSIconLinks from '@/components/molecules/SNSIconLinks';
 
 const HomeFooter = () => {
     return (

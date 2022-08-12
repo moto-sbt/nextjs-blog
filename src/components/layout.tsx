@@ -1,8 +1,8 @@
 import Head from 'next/head';
-import HomeHeader from 'components/organisms/HomeHeader';
-import HomeFooter from 'components/organisms/HomeFooter';
-import PostHeader from 'components/organisms/PostHeader';
-import PostFooter from 'components/organisms/PostFooter';
+import HomeHeader from '@/components/organisms/HomeHeader';
+import HomeFooter from '@/components/organisms/HomeFooter';
+import PostHeader from '@/components/organisms/PostHeader';
+import PostFooter from '@/components/organisms/PostFooter';
 
 export const siteTitle = 'motosbt';
 

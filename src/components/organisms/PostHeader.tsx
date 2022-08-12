@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import CircleLogo from 'components/atoms/CircleLogo';
+import CircleLogo from '@/components/atoms/CircleLogo';
 
 const PostHeader = () => {
     return (

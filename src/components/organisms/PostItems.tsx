@@ -1,4 +1,4 @@
-import PostItem from 'components/molecules/PostItem';
+import PostItem from '@/components/molecules/PostItem';
 
 type Props = {
     allPostsData: {

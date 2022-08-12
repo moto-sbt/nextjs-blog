@@ -1,8 +1,8 @@
 import { GetServerSideProps } from 'next';
 import Head from 'next/head';
-import Layout, { siteTitle } from 'components/layout';
-import PostItems from 'components/organisms/PostItems';
-import { getSortedPostsDataByTag } from 'lib/posts';
+import Layout, { siteTitle } from '@/components/layout';
+import PostItems from '@/components/organisms/PostItems';
+import { getSortedPostsDataByTag } from '@/lib/posts';
 
 export const getServerSideProps: GetServerSideProps = async ({ params }) => {
   const allPostsDataByTag = getSortedPostsDataByTag(params.tag as string);

@@ -1,8 +1,8 @@
 import { GetStaticProps } from 'next';
 import Head from 'next/head';
-import Layout, { siteTitle } from 'components/layout';
-import PostItems from 'components/organisms/PostItems';
-import { getSortedPostsData } from 'lib/posts';
+import Layout, { siteTitle } from '@/components/layout';
+import PostItems from '@/components/organisms/PostItems';
+import { getSortedPostsData } from '@/lib/posts';
 
 export const getStaticProps: GetStaticProps = async () => {
   const allPostsData = getSortedPostsData();
