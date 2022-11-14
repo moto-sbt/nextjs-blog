@@ -10,7 +10,7 @@ const SNSIconLinks = () => {
             <GithubIconLink id="moto-sbt" size={40} repository="nextjs-blog" />
             <TwitterIconLink id="moto_sbt" size={40} />
             <YouTubeIconLink id="UCn5JtdxpDzCRiSM7fdomt9g" size={40} />
-            <TiktokIconLink id="moto-sbt" size={40} />
+            <TiktokIconLink id="moto_sbt" size={40} />
             <InstagramIconLink id="moto_sbt" size={40} />
         </>
     );
