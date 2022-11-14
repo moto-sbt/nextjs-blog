@@ -10,6 +10,7 @@ module.exports = {
       'black': '#000000',
       'link-blue': '#0070f3',
       'twitter': '#1DA1F2',
+      'youtube': '#E62117',
       'gray': {
         light: "#f5f5f5",
         DEFAULT:'#666',
