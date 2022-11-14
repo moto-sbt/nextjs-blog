@@ -11,9 +11,11 @@ module.exports = {
       'link-blue': '#0070f3',
       'twitter': '#1DA1F2',
       'youtube': '#E62117',
+      'tiktok': '#6a76ac',
+      'instagram': '#c13584',
       'gray': {
         light: "#f5f5f5",
-        DEFAULT:'#666',
+        DEFAULT: '#666',
         dark: '#a9a9a9'
       },
       'inherit': 'inherit',
