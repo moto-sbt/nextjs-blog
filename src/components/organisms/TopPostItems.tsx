@@ -22,7 +22,7 @@ const TopPostItems = ({ allPostsData }: Props) => {
                         return null
                     }
                     return (
-                        <li className="my-6" key={id}>
+                        <li className="my-4" key={id}>
                             <PostItem date={date} title={title} id={id} tags={tags}/>
                         </li>
                     )
@@ -30,7 +30,7 @@ const TopPostItems = ({ allPostsData }: Props) => {
             </ul>
             <div className='flex justify-center items-center'>
                 <Link href="/posts">
-                        <button type="button" className="text-blue hover:text-white border border-blue hover:bg-blue focus:ring-4 focus:outline-none focus:ring-blue font-medium rounded-lg py-2 px-3 text-xs text-center mr-2 mb-2">
+                        <button type="button" className="text-blue hover:text-white border border-blue hover:bg-blue focus:ring-4 focus:outline-none focus:ring-blue font-medium rounded py-2 px-3 text-xs text-center mr-2 mb-2">
                             More
                         </button>
                 </Link>

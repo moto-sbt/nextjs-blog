@@ -17,19 +17,20 @@ const PostItem = ({
     return (
         <>
             <Link href={`/posts/${id}`}>
-                <a className="leading-7">{title}</a>
-            </Link>
-            <br />
-            <small className="text-gray">
-                <Date dateString={date} />
-            </small>
-            {tags.map((tag, index) => (
-                <Link href={`/tags/${tag}`} key={index}>
-                    <a className="bg-gray-light hover:bg-gray-dark text-gray font-medium text-sm ml-3 px-2 py-0.5 rounded dark:hover:bg-gray-dark hover:no-underline">
-                        <small>{tag}</small>
-                    </a>
-                </Link>
-            ))}
+                <a className="block p-6 bg-white rounded border border-gray-dark hover:bg-gray-light hover:no-underline">
+                    <h5 className="mb-2 tracking-tight">{title}</h5>
+                    <small className="text-gray">
+                        <Date dateString={date} />
+                        {tags.map((tag, index) => (
+                            <Link href={`/tags/${tag}`} key={index}>
+                                <a className="bg-gray-light hover:bg-gray-dark text-gray font-medium text-sm ml-3 px-2 py-0.5 rounded dark:hover:bg-gray-dark hover:no-underline">
+                                    <small>{tag}</small>
+                                </a>
+                            </Link>
+                        ))}
+                    </small>
+                </a>
+            </Link>    
         </>
     )
 }
