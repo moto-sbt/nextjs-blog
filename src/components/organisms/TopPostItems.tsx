@@ -30,7 +30,10 @@ const TopPostItems = ({ allPostsData }: Props) => {
             </ul>
             <div className='flex justify-center items-center'>
                 <Link href="/posts">
-                        <a>More</a>
+                        {/* <a>More</a> */}
+                        <button type="button" className="text-blue hover:text-white border border-blue hover:bg-blue focus:ring-4 focus:outline-none focus:ring-blue font-medium rounded-lg py-2 px-3 text-xs text-center mr-2 mb-2">
+                            More
+                        </button>
                 </Link>
             </div>
         </>

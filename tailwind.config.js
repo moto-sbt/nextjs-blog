@@ -8,6 +8,7 @@ module.exports = {
       current: 'currentColor',
       'white': '#ffffff',
       'black': '#000000',
+      'blue': '#0070f3',
       'link-blue': '#0070f3',
       'twitter': '#1DA1F2',
       'youtube': '#E62117',
