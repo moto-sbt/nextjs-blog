@@ -5,7 +5,7 @@ import Date from '@/components/atoms/Date';
 import { getAllPostIds, getPostData } from '@/lib/posts'
 import 'prismjs/themes/prism-tomorrow.css';
 
-export const getStaticPaths : GetStaticPaths = async () => {
+export const getStaticPaths: GetStaticPaths = async () => {
     // id の可能な値のリストを返す
     const paths = getAllPostIds();
     return {
@@ -16,7 +16,7 @@ export const getStaticPaths : GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
     // params.id　を使用してブログ投稿に必要なデータを取得
-    const postData =  await getPostData(params.id as string);
+    const postData = await getPostData(params.id as string);
     return {
         props: {
             postData,
@@ -39,7 +39,7 @@ const Post = ({ postData }: Props) => {
                 <title>{postData.title}</title>
             </Head>
             <article>
-                <h1 className="text-3xl font-extrabold leading-9 my-4">{postData.title}</h1>
+                <h1 className="text-3xl font-extrabold leading-9 my-4 mt-20">{postData.title}</h1>
                 <div className="text-gray">
                     <Date dateString={postData.date} />
                 </div>
