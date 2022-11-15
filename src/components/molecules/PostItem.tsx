@@ -25,7 +25,7 @@ const PostItem = ({
             </small>
             {tags.map((tag, index) => (
                 <Link href={`/tags/${tag}`} key={index}>
-                    <a className="text-sm text-gray bg-gray-light mx-1 px-1 rounded-md hover:bg-gray-dark hover:no-underline">
+                    <a className="bg-gray-light hover:bg-gray-dark text-gray font-medium text-sm ml-3 px-2 py-0.5 rounded dark:hover:bg-gray-dark hover:no-underline">
                         <small>{tag}</small>
                     </a>
                 </Link>
