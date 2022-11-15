@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import PostItem from '@/components/molecules/PostItem';
 
-const topPostsNum = 2
+const topPostsNum = 1
 
 type Props = {
     allPostsData: {

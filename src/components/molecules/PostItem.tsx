@@ -17,8 +17,8 @@ const PostItem = ({
     return (
         <>
             <Link href={`/posts/${id}`}>
-                <a className="block p-6 bg-white rounded border border-gray-dark hover:bg-gray-light hover:no-underline">
-                    <h5 className="mb-2 tracking-tight">{title}</h5>
+                <a className="block p-6 bg-white rounded border border-gray-dark hover:no-underline">
+                    <h5 className="mb-2 tracking-tight hover:underline">{title}</h5>
                     <small className="text-gray">
                         <Date dateString={date} />
                         {tags.map((tag, index) => (
