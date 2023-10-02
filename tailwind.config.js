@@ -11,6 +11,7 @@ module.exports = {
       'blue': '#0070f3',
       'link-blue': '#0070f3',
       'twitter': '#1DA1F2',
+      'x': '#000000',
       'youtube': '#E62117',
       'tiktok': '#6a76ac',
       'instagram': '#c13584',
