@@ -1,4 +1,4 @@
-import { FaTwitter } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
 
 type Props = {
     size: number
@@ -10,8 +10,8 @@ const TwitterIconLink = ({
     id
 }: Props) => {
     return (
-        <a className='text-twitter m-2' href={`https://twitter.com/${id}`}>
-            <FaTwitter size={size} />
+        <a className='text-x m-2' href={`https://x.com/${id}`}>
+            <FaXTwitter size={size} />
         </a>
     );
 }
