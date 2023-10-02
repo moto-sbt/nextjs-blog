@@ -5,7 +5,7 @@ type Props = {
     id: string
 }
 
-const TwitterIconLink = ({
+const XTwitterIconLink = ({
     size,
     id
 }: Props) => {
@@ -16,4 +16,4 @@ const TwitterIconLink = ({
     );
 }
 
-export default TwitterIconLink
+export default XTwitterIconLink
