@@ -142,3 +142,16 @@ export async function getPostData(id: string) {
         ...(matterResult.data as { date: string, title: string })
     }
 }
+
+// 全記事のtagを返す
+export function getAllTags(): string[] {
+    const allPostsData = getSortedPostsData();
+
+    // タグのみ取り出す
+    const tagsArray = allPostsData.map(post => post.tags);
+
+    // 重複するタグを削除
+    const uniqueTags = [...new Set(tagsArray.flat())];
+    
+    return uniqueTags;
+}

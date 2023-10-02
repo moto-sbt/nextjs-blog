@@ -1,11 +1,20 @@
-import { GetServerSideProps } from 'next';
+import { GetServerSideProps, GetStaticPaths, GetStaticProps } from 'next';
 import Head from 'next/head';
 import Layout, { siteTitle } from '@/components/layout';
 import PostItems from '@/components/organisms/PostItems';
-import { getSortedPostsDataByTag } from '@/lib/posts';
+import { getSortedPostsDataByTag, getAllTags } from '@/lib/posts';
 
-export const getServerSideProps: GetServerSideProps = async ({ params }) => {
+export const getStaticPaths: GetStaticPaths = async () => {
+  const tags = getAllTags();
+  return {
+    paths: tags.map(tag => ({ params: { tag }})),
+    fallback: false // 404ページに飛ばす
+  }
+}
+
+export const getStaticProps: GetStaticProps = async ({ params }) => {
   const allPostsDataByTag = getSortedPostsDataByTag(params.tag as string);
+
   return {
     props: {
       allPostsDataByTag,
