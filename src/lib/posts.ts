@@ -4,6 +4,7 @@ import matter from 'gray-matter';
 import { remark } from 'remark';
 import html from 'remark-html';
 import prism from 'remark-prism';
+import { serialize } from 'next-mdx-remote/serialize';
 
 const postsDirectory = path.join(process.cwd(), 'posts');
 
@@ -21,8 +22,8 @@ export function getSortedPostsData() {
      * }
      */
     const allPostsData = fileNames.map((fileName) => {
-        // ".md"をファイル名から外す
-        const id = fileName.replace(/\.md$/, '');
+        // ".mdx"をファイル名から外す
+        const id = fileName.replace(/\.mdx$/, '');
 
         // マークダウンを文字列として読み込む
         const fullPath = path.join(postsDirectory, fileName);
@@ -64,8 +65,8 @@ export function getSortedPostsDataByTag(tag: string) {
      * }
      */
     const allPostsData = fileNames.map((fileName) => {
-        // ".md"をファイル名から外す
-        const id = fileName.replace(/\.md$/, '');
+        // ".mdx"をファイル名から外す
+        const id = fileName.replace(/\.mdx$/, '');
 
         // マークダウンを文字列として読み込む
         const fullPath = path.join(postsDirectory, fileName);
@@ -116,30 +117,27 @@ export function getAllPostIds() {
     return fileNames.map((fileName) => {
         return {
             params: {
-                id: fileName.replace(/\.md$/, ''),
+                id: fileName.replace(/\.mdx$/, ''),
             }
         }
     })
 }
 
+// mdx ファイルを解析して記事データを返す
 export async function getPostData(id: string) {
-    const fullPath = path.join(postsDirectory, `${id}.md`);
-    const fileContents = fs.readFileSync(fullPath, 'utf8');
+    const fullPath = path.join(postsDirectory, `${id}.mdx`);
+    const mdxSource = fs.readFileSync(fullPath, 'utf-8');
 
     // gra-matter を使用して投稿メタデータを解析
-    const matterResult = matter(fileContents);
+    const { content, data } = matter(mdxSource);
 
-    // remarkを使用してmarkdownをhtmlに変換する
-    const processedContent = await remark()
-        .use(html, { sanitize: false })
-        .use(prism)
-        .process(matterResult.content);
-    const contentHtml = processedContent.toString();
+    // MDXの内容をシリアライズして取得
+    const contentHtml = await serialize(content);
 
     return {
         id,
         contentHtml,
-        ...(matterResult.data as { date: string, title: string })
+        ...(data as { date: string, title: string })
     }
 }
 

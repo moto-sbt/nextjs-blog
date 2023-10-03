@@ -4,6 +4,7 @@ import Layout from '@/components/layout';
 import Date from '@/components/atoms/Date';
 import { getAllPostIds, getPostData } from '@/lib/posts'
 import 'prismjs/themes/prism-tomorrow.css';
+import { MDXRemote } from 'next-mdx-remote';
 
 export const getStaticPaths: GetStaticPaths = async () => {
     // id の可能な値のリストを返す
@@ -32,6 +33,10 @@ type Props = {
     }
 }
 
+const components = {
+    Date
+}
+
 const Post = ({ postData }: Props) => {
     return (
         <Layout>
@@ -43,7 +48,7 @@ const Post = ({ postData }: Props) => {
                 <div className="text-gray">
                     <Date dateString={postData.date} />
                 </div>
-                <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
+                <MDXRemote {...postData.contentHtml} components={components} />
             </article>
         </Layout>
     );
