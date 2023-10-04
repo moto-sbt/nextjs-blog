@@ -1,0 +1,80 @@
+---
+title: '【Next.js】ブログのタグフィルタリングを改善する'
+date: '2023-10-02'
+tags: ['nextjs']
+---
+import LinkCard from '@/components/atoms/LinkCard';
+
+
+## 当初の状態 👶
+久しぶりに技術ブログを更新します。このブログは昨年コロナ療養中に作成したのですが、Next.jsはほぼ初心者の状態で作成したため、記事についてるタグを押してもレスポンスが遅い...という状態でした。
+
+<br />
+
+Next.jsはサーバーサイドレンダリング（SSR）と静的サイト生成（SSG）の両方をサポートしていますが、どのようにこれらの機能を使い分けるか、なんならそれがどのような機能なのかなど、あまり理解せずに実装したためこのような問題が起こっていたのだと考えられます。
+
+<br />
+
+## タグフィルタリングが遅い理由の初期分析 🔎
+とりあえず *[tag].tsx* がどう考えてもアヤシイので見てみると以下のようになっています。
+
+```ts
+export const getServerSideProps: GetServerSideProps = async ({ params }) => {
+  const allPostsDataByTag = getSortedPostsDataByTag(params.tag as string);
+  return {
+    props: {
+      allPostsDataByTag,
+      tag: params.tag
+    },
+  };
+}
+```
+
+
+<br />
+
+確か何がなんだかよくわからないけど、とりあえず動くものを...という感じで実装したのですが、この *getServerSideProps* についてよく理解しないまま使っていたのが良くないですね。。
+
+<br />
+
+## getServerSideProps について 📙
+*getServerSideProps*はNext.jsのデータフェッチ関数の一つで、ページがリクエストされるたびにサーバーサイドでデータをフェッチして、そのデータを用いてページをレンダリングすることができます。
+
+ユーザーがページにアクセスするたびに実行されるので、常に最新のデータでページを表示することが可能になります。
+
+<br />
+
+今回ページタグの内容が変わることはないのでこちらの関数を使用してもメリットはなさそうです。
+
+<br />
+
+## getStaticProps と getStaticPaths について 📙
+- *getStaticProps*：ビルド時に静的なプロパティをページに渡すための非同期関数です。これを使用すると、データベースやAPIからのデータを取得し、そのデータをもとに静的なページを生成することができます。
+
+- *getStaticPaths*：動的ルーティングを使用して静的生成を行うページのために、事前に生成すべきパスのリストを指定するための関数です。例えば、*/posts/[id]*のような動的なページがある場合、どのidのページをビルド時に生成すべきかを指定します。
+
+<br />
+
+## 修正 🔨
+以下を行いました
+- ①*getServerSideProps* から *getStaticProps* への移行
+- ②*getStaticPaths*でタグの静的パス生成
+
+<br />
+
+コード変更の詳細は以下です。
+
+<LinkCard url="https://github.com/moto-sbt/nextjs-blog/commit/bbe6244ccf2e2ce23521b2dc714920b0d0b4b5c5" />
+
+<br />
+
+## 実際の動作結果 📷
+タグを押したときにすぐ切り替わるようになりました。
+
+<br />
+
+![2023-10-02_1](/images/posts/2023-10-02/2023-10-02_1.gif)
+
+
+## まとめ 🎉
+*getStaticProps* と *getStaticPaths*を使用することでブログのパフォーマンスが改善されました。なんでこの関数を使うのか？をちゃんと調べながら実装しないといけませんね...

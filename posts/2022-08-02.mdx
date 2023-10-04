@@ -3,16 +3,13 @@ title: 'シンタックスハイライトのついたコードを貼れるよう
 date: '2022-08-02'
 tags: ['nextjs']
 ---
+import LinkCard from '@/components/atoms/LinkCard';
 
 
 ## 当初 👶
 記事に JavaScript などのコードを貼ると、以下のように味気ないコードとなっていました。
 
-<div><pre><code class=""><span>const</span> <span>hoge</span> <span>=</span> <span>function</span> <span>piyo</span><span>(</span><span>)</span> <span>{</span>
-    <span>console</span><span>.</span><span>log</span><span>(</span><span>"hello"</span><span>)</span><span>;</span>
-<span>}</span>
-</code></pre></div>
-
+![2022-08-02_3](/images/posts/2022-08-02/2022-08-02_3.png)
 　
 
 これでは技術ブログはなかなか書きづらいですね...
@@ -32,10 +29,7 @@ tags: ['nextjs']
 使用したライブラリは以下。
 - [remark-prism](https://www.npmjs.com/package/remark-prism)
 
-　
-　
-
-`remark()` で `html` に変換する部分にコードを追加します。
+*remark()* で *html* に変換する部分にコードを追加します。
 
 ```typescript
 import prism from 'remark-prism';
@@ -64,7 +58,16 @@ export async function getPostData(id: string) {
 
 　
 
-直前の `.use(html, { sanitize: false })` の部分で `{ sanitize: false }` というオプションを入れているのですが、こちらは `remark-html` のバージョンによっては入れる必要があるとのこと。自分の場合は `15.0.1` ですが必要でした（このオプションがないとハイライトがつかない...）。
+ちなみに以下の部分にて
+
+```js
+const processedContent = await remark()
+    .use(html, { sanitize: false })
+    .use(prism)
+    .process(matterResult.content);
+```
+
+*sanitize: false* というオプションを入れているのですが、こちらは *remark-html* のバージョンによっては入れる必要があるとのこと。自分の場合は *15.0.1* ですが必要でした（このオプションがないとハイライトがつかない...）。
 
 　
 ## できたもの 💮
@@ -77,11 +80,13 @@ const hoge = function piyo() {
 
 　
 
-コード変更の詳細は[こちら](https://github.com/moto-sbt/nextjs-blog/pull/14/files)。
+コード変更の詳細は以下です。
+
+<LinkCard url="https://github.com/moto-sbt/nextjs-blog/pull/14/files" />
 　
 
 ## 注意点 ⚠
-`TypeScript`だと型定義ファイルがないと以下エラーとなるので入れておきましょう。  
+*TypeScript*だと型定義ファイルがないと以下エラーとなるので入れておきましょう。  
 
 　
 

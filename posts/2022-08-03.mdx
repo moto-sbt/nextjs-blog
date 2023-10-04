@@ -3,14 +3,14 @@ title: 'ブログにいい感じのアイコンを使いたい'
 date: '2022-08-03'
 tags: ['react', 'design']
 ---
-
+import LinkCard from '@/components/atoms/LinkCard';
 
 ## きっかけ 💡
 技術ブログや OSS の web サイトで、フッター部分に SNS や Github のアイコンを見かけることがあります。
 
 　
 
-`Nuxt.js` で作成されている[東京都新型コロナウイルス対策サイト](https://stopcovid19.metro.tokyo.lg.jp/)では、以下のようになっています。
+*Nuxt.js* で作成されている[東京都新型コロナウイルス対策サイト](https://stopcovid19.metro.tokyo.lg.jp/)では、以下のようになっています。
 
 　
 
@@ -32,9 +32,9 @@ tags: ['react', 'design']
 
 　
 
-`React Icons` は `Font Awesome`, `Bootstrap Icons`, etc... など有名どころのアイコンが入っていてかなり種類が豊富 👏
+*React Icons* は *Font Awesome*, *Bootstrap Icons*, etc... など有名どころのアイコンが入っていてかなり種類が豊富 👏
 
- `React` のプロジェクトだったらこれ一択なのかもしれません...。
+*React* のプロジェクトだったらこれ一択なのかもしれません...。
 
 　
 
@@ -46,7 +46,7 @@ $ yarn add react-icons
 
 　
 
-今回は `Font Awesome` の `Github`, `Twitter` のアイコンを貼りたいので、使用したいファイルにてインポートします。
+今回は *Font Awesome* の *Github*, *Twitter* のアイコンを貼りたいので、使用したいファイルにてインポートします。
 
 ```typescript
 import { FaGithub, FaTwitter } from "react-icons/fa";
@@ -56,7 +56,7 @@ import { FaGithub, FaTwitter } from "react-icons/fa";
 ```
 
 　
-`react-icons/xx` の `xx` 部分は、 `Font Awesome` なら `Fa`、`Bootstrap` なら `bs` となるようですね。
+*react-icons/xx* の *xx* 部分は、 *Font Awesome* なら *Fa*、*Bootstrap* なら *bs* となるようですね。
 
 　
 
@@ -81,4 +81,6 @@ CSS でアイコンの色とか調整して...以下のようにできました 
 
 　
 
-コード変更の詳細は[こちら](https://github.com/moto-sbt/nextjs-blog/pull/20/files)
+コード変更の詳細は以下です。
+
+<LinkCard url="https://github.com/moto-sbt/nextjs-blog/pull/20/files" />
