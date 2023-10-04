@@ -4,6 +4,7 @@ import { ReactNode } from "react";
 import Layout from '@/components/layout';
 import Date from '@/components/atoms/Date';
 import CodeBlock from '@/components/atoms/CodeBlock';
+import LinkCard from '@/components/atoms/LinkCard';
 import { getAllPostIds, getPostData } from '@/lib/posts'
 import 'prismjs/themes/prism-tomorrow.css';
 import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote';
@@ -13,7 +14,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
     const paths = getAllPostIds();
     return {
         paths,
-        fallback: false, // ?
+        fallback: false,
     }
 }
 
@@ -37,6 +38,7 @@ type Props = {
 
 const components = {
     Date,
+    LinkCard,
     code: (props: JSX.IntrinsicAttributes & { children?: ReactNode }) => (
         <CodeBlock {...props} />
     ),

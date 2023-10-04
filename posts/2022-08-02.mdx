@@ -3,6 +3,7 @@ title: 'シンタックスハイライトのついたコードを貼れるよう
 date: '2022-08-02'
 tags: ['nextjs']
 ---
+import LinkCard from '@/components/atoms/LinkCard';
 
 
 ## 当初 👶
@@ -27,9 +28,6 @@ tags: ['nextjs']
 ## 実装 🚜
 使用したライブラリは以下。
 - [remark-prism](https://www.npmjs.com/package/remark-prism)
-
-　
-　
 
 *remark()* で *html* に変換する部分にコードを追加します。
 
@@ -82,7 +80,9 @@ const hoge = function piyo() {
 
 　
 
-コード変更の詳細は[こちら](https://github.com/moto-sbt/nextjs-blog/pull/14/files)。
+コード変更の詳細は以下です。
+
+<LinkCard url="https://github.com/moto-sbt/nextjs-blog/pull/14/files" />
 　
 
 ## 注意点 ⚠

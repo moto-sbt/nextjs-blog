@@ -3,10 +3,7 @@ title: '【Next.js】ブログのタグフィルタリングを改善する'
 date: '2023-10-02'
 tags: ['nextjs']
 ---
-import Date from '@/components/atoms/Date';
-
-## MDX
-<Date dateString="2023-10-03" />
+import LinkCard from '@/components/atoms/LinkCard';
 
 
 ## 当初の状態 👶
@@ -63,7 +60,11 @@ export const getServerSideProps: GetServerSideProps = async ({ params }) => {
 - ①*getServerSideProps* から *getStaticProps* への移行
 - ②*getStaticPaths*でタグの静的パス生成
 
-コードの詳細は[こちら](https://github.com/moto-sbt/nextjs-blog/commit/bbe6244ccf2e2ce23521b2dc714920b0d0b4b5c5)
+<br />
+
+コード変更の詳細は以下です。
+
+<LinkCard url="https://github.com/moto-sbt/nextjs-blog/commit/bbe6244ccf2e2ce23521b2dc714920b0d0b4b5c5" />
 
 <br />
 
