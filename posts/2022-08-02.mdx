@@ -60,7 +60,16 @@ export async function getPostData(id: string) {
 
 　
 
-直前の *.use(html, { sanitize: false })* の部分で *{ sanitize: false }* というオプションを入れているのですが、こちらは *remark-html* のバージョンによっては入れる必要があるとのこと。自分の場合は *15.0.1* ですが必要でした（このオプションがないとハイライトがつかない...）。
+ちなみに以下の部分にて
+
+```js
+const processedContent = await remark()
+    .use(html, { sanitize: false })
+    .use(prism)
+    .process(matterResult.content);
+```
+
+*sanitize: false* というオプションを入れているのですが、こちらは *remark-html* のバージョンによっては入れる必要があるとのこと。自分の場合は *15.0.1* ですが必要でした（このオプションがないとハイライトがつかない...）。
 
 　
 ## できたもの 💮
