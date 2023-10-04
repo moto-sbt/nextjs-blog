@@ -18,7 +18,7 @@ Next.jsはサーバーサイドレンダリング（SSR）と静的サイト生�
 ## タグフィルタリングが遅い理由の初期分析 🔎
 とりあえず *[tag].tsx* がどう考えてもアヤシイので見てみると以下のようになっています。
 
-```ts
+```ts/src/pages/tags/[tag].tsx
 export const getServerSideProps: GetServerSideProps = async ({ params }) => {
   const allPostsDataByTag = getSortedPostsDataByTag(params.tag as string);
   return {
