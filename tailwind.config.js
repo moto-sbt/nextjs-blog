@@ -15,6 +15,7 @@ module.exports = {
       'youtube': '#E62117',
       'tiktok': '#6a76ac',
       'instagram': '#c13584',
+      'qiita': '#55c500',
       'gray': {
         light: "#f5f5f5",
         DEFAULT: '#666',
