@@ -1,4 +1,4 @@
-import { SiQiita } from "react-icons/Si";
+import { SiQiita } from "react-icons/si";
 
 type Props = {
     size: number
