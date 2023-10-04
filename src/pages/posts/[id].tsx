@@ -1,7 +1,9 @@
 import { GetStaticProps, GetStaticPaths } from 'next';
 import Head from 'next/head';
+import { ReactNode } from "react";
 import Layout from '@/components/layout';
 import Date from '@/components/atoms/Date';
+import CodeBlock from '@/components/atoms/CodeBlock';
 import { getAllPostIds, getPostData } from '@/lib/posts'
 import 'prismjs/themes/prism-tomorrow.css';
 import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote';
@@ -34,7 +36,10 @@ type Props = {
 }
 
 const components = {
-    Date
+    Date,
+    code: (props: JSX.IntrinsicAttributes & { children?: ReactNode }) => (
+        <CodeBlock {...props} />
+    ),
 }
 
 const Post = ({ postData }: Props) => {

@@ -8,7 +8,7 @@ tags: ['nextjs', 'tailwindcss', 'design']
 ![2022-08-06_1](/images/posts/2022-08-06/2022-08-06_1.png)
 
 ## Tailwind CSS 🎐
-ここ最近、といっても1,2年くらいでしょうか？ `Tailwind CSS` というワードを Qiita やら はてなブックマーク やらで目にすることがちらほら。  
+ここ最近、といっても1,2年くらいでしょうか？ *Tailwind CSS* というワードを Qiita やら はてなブックマーク やらで目にすることがちらほら。  
 
 　
 
@@ -25,7 +25,7 @@ tags: ['nextjs', 'tailwindcss', 'design']
 　
 
 ## Next.js プロジェクトに追加する 💫
-`yarn` コマンドで Tailwind CSS をインストールしていきます（`npm` の方は略）
+*yarn* コマンドで Tailwind CSS をインストールしていきます（*npm* の方は略）
 
 ```bash
 $ yarn add -D tailwindcss postcss autoprefixer
@@ -41,9 +41,9 @@ $ yarn tailwindcss init -p
 
 　
 
-続いて `tailwind.config.js` を編集します。`content`のプロパティを以下のように設定。
+続いて *tailwind.config.js* を編集します。*content* のプロパティを以下のように設定。
 
-```javascript
+```javascript/tailwind.config.js
 module.exports = {
   content: [
     "./pages/**/*.{js,ts,jsx,tsx}",
@@ -58,7 +58,7 @@ module.exports = {
 
 　
 
-あとは `./styles/globals.css` に以下を付け足します。
+あとは *./styles/globals.css* に以下を付け足します。
 
 ```css
 @tailwind base;
@@ -74,7 +74,7 @@ module.exports = {
 　
 
 ## Tailwind CSS 変換 🔨
-`global.css` ファイル以外に定義した CSS をすべて Tailwind CSS に変換しました。
+*global.css* ファイル以外に定義した CSS をすべて Tailwind CSS に変換しました。
 
 　
 
@@ -111,4 +111,4 @@ Tailwind CSS 変換の詳細は[こちら](https://github.com/moto-sbt/nextjs-bl
 
 　
 
-`global.css` に定義している CSS は、`h1` タグなどが Tailwind のスタイルにならないように残しました。この辺もどっかうまく設定して CSS のコード自体を無くせるのだと思うのですが、それはまた今度で...
+*global.css* に定義している CSS は、*h1* タグなどが Tailwind のスタイルにならないように残しました。この辺もどっかうまく設定して CSS のコード自体を無くせるのだと思うのですが、それはまた今度で...
