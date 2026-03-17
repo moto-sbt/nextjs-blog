@@ -1,8 +1,11 @@
-import { AppProps } from 'next/app';
-import '@/styles/global.css';
+import '@/styles/global.css'
+import { AppProps } from 'next/app'
+import { ThemeProvider } from 'next-themes'
 
-const App = ({ Component, pageProps }: AppProps) => {
-    return <Component {...pageProps} />;
+export default function App({ Component, pageProps }: AppProps) {
+  return (
+    <ThemeProvider attribute="class" defaultTheme="light" forcedTheme="light">
+      <Component {...pageProps} />
+    </ThemeProvider>
+  )
 }
-
-export default App

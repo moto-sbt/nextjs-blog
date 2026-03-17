@@ -10,7 +10,7 @@ const XTwitterIconLink = ({
     id
 }: Props) => {
     return (
-        <a className='text-x m-2' href={`https://x.com/${id}`}>
+        <a className='m-2' style={{ color: '#000000' }} href={`https://x.com/${id}`}>
             <FaXTwitter size={size} />
         </a>
     );

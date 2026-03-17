@@ -28,9 +28,7 @@ const Posts = ({ allPostsData }: Props) => {
       <Head>
         <title>{siteTitle}</title>
       </Head>
-      <section className="text-xl leading-6 pt-px">
-        <PostItems allPostsData={allPostsData} />
-      </section>
+      <PostItems allPostsData={allPostsData} />
     </Layout>
   );
 }

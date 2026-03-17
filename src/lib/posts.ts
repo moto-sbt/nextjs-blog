@@ -134,9 +134,14 @@ export async function getPostData(id: string) {
     // MDXの内容をシリアライズして取得
     const contentHtml = await serialize(content);
 
+    // 文字数を700で割って読了時間（分）を計算（最低1分）
+    const wordCount = content.replace(/<[^>]*>/g, '').length
+    const readingTime = Math.max(1, Math.ceil(wordCount / 700))
+
     return {
         id,
         contentHtml,
+        readingTime,
         ...(data as { date: string, title: string })
     }
 }

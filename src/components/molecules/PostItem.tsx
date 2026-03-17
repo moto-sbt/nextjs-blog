@@ -1,5 +1,5 @@
-import Link from 'next/link';
-import Date from '@/components/atoms/Date';
+import Link from 'next/link'
+import Date from '@/components/atoms/Date'
 
 type Props = {
     date: string
@@ -8,30 +8,31 @@ type Props = {
     tags: Array<string>
 }
 
-const PostItem = ({
-    date,
-    title,
-    id,
-    tags,
-}: Props) => {
+const PostItem = ({ date, title, id, tags }: Props) => {
     return (
-        <>
-            <Link href={`/posts/${id}`}>
-                <a className="block p-6 bg-white rounded border border-gray-dark hover:no-underline">
-                    <h5 className="mb-2 tracking-tight hover:underline">{title}</h5>
-                    <small className="text-gray">
-                        <Date dateString={date} />
-                        {tags.map((tag, index) => (
-                            <Link href={`/tags/${tag}`} key={index}>
-                                <a className="bg-gray-light hover:bg-gray-dark text-gray font-medium text-sm ml-3 px-2 py-0.5 rounded dark:hover:bg-gray-dark hover:no-underline">
-                                    <small>{tag}</small>
-                                </a>
-                            </Link>
-                        ))}
-                    </small>
-                </a>
-            </Link>    
-        </>
+        <Link href={`/posts/${id}`}>
+            <a className="block h-full card-base p-5">
+                {/* タグ */}
+                <div className="flex flex-wrap gap-1.5 mb-3">
+                    {tags.map((tag, index) => (
+                        <span key={index} className="tag-pill">#{tag}</span>
+                    ))}
+                </div>
+
+                {/* タイトル */}
+                <h3
+                    className="text-base font-semibold leading-snug mb-3"
+                    style={{ color: '#0f172a' }}
+                >
+                    {title}
+                </h3>
+
+                {/* 日付 */}
+                <div className="text-xs font-mono" style={{ color: '#94a3b8' }}>
+                    <Date dateString={date} />
+                </div>
+            </a>
+        </Link>
     )
 }
 

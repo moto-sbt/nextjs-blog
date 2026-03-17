@@ -1,7 +1,7 @@
-import LinkButton from '@/components/atoms/LinkButton';
-import PostItem from '@/components/molecules/PostItem';
+import Link from 'next/link'
+import PostItem from '@/components/molecules/PostItem'
 
-const topPostsNum = 1
+const topPostsNum = 3
 
 type Props = {
     allPostsData: {
@@ -14,25 +14,40 @@ type Props = {
 
 const TopPostItems = ({ allPostsData }: Props) => {
     return (
-        <>
-            <h2 className="text-2xl leading-loose my-4 font-bold">最新記事</h2>
-            <ul className="list-none p-0 m-0">
+        <section className="max-w-5xl mx-auto px-6">
+            <div className="flex items-center justify-between mb-6">
+                <span
+                    className="text-xs font-mono font-semibold tracking-widest uppercase"
+                    style={{ color: '#0891b2' }}
+                >
+                    &gt; latest_posts
+                </span>
+                <Link href="/posts">
+                    <a
+                        className="text-xs font-medium px-3 py-1.5 rounded-lg"
+                        style={{
+                            color: '#64748b',
+                            background: '#ffffff',
+                            border: '1px solid #e2e8f0',
+                        }}
+                    >
+                        All posts →
+                    </a>
+                </Link>
+            </div>
+
+            <ul className="list-none p-0 m-0 grid grid-cols-1 md:grid-cols-3 gap-4">
                 {allPostsData.map(({ id, date, title, tags }, index) => {
-                    if (index >= topPostsNum) {
-                        return null
-                    }
+                    if (index >= topPostsNum) return null
                     return (
-                        <li className="my-4" key={id}>
-                            <PostItem date={date} title={title} id={id} tags={tags}/>
+                        <li key={id} className="m-0">
+                            <PostItem date={date} title={title} id={id} tags={tags} />
                         </li>
                     )
                 })}
             </ul>
-            <div className='flex justify-center items-center'>
-                <LinkButton href="/posts" text="More" />
-            </div>
-        </>
-    );
+        </section>
+    )
 }
 
 export default TopPostItems
