@@ -1,6 +1,5 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import SNSIconLinks from '@/components/molecules/SNSIconLinks'
 
 const HomeHeader = () => {
     return (
@@ -77,9 +76,6 @@ const HomeHeader = () => {
                         <p className="text-sm leading-relaxed max-w-sm mt-1" style={{ color: '#64748b' }}>
                             技術的なまとめとか、所感とかを気ままに。
                         </p>
-                        <div className="flex items-center gap-2 justify-center md:justify-start mt-2">
-                            <SNSIconLinks />
-                        </div>
                     </div>
                 </div>
             </div>

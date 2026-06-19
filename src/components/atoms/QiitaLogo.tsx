@@ -10,7 +10,7 @@ const QiitaIconLink = ({
     id
 }: Props) => {
     return (
-        <a className='text-qiita m-2' href={`https://qiita.com/${id}`}>
+        <a className='text-black m-2' href={`https://qiita.com/${id}`}>
             <SiQiita size={size} />
         </a>
     );

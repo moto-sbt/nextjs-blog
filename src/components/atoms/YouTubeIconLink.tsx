@@ -10,7 +10,7 @@ const YoutubeIconLink = ({
     id
 }: Props) => {
     return (
-        <a className='text-youtube m-2' href={`https://www.youtube.com/channel/${id}`}>
+        <a className='text-black m-2' href={`https://www.youtube.com/channel/${id}`}>
             <FaYoutube size={size} />
         </a>
     );

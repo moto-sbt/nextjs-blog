@@ -12,7 +12,7 @@ const GithubIconLink = ({
     repository
 }: Props) => {
     return (
-        <a className='text-black m-2' href={`https://github.com/${id}/${repository}`}>
+        <a className='text-black m-2' href={`https://github.com/${id}${repository ? `/${repository}` : ""}`}>
             <FaGithub size={size} />
         </a>
     );
